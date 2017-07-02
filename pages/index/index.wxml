@@ -1,0 +1,5 @@
+<!--index.wxml-->
+<view class="container">
+  <image class="logo" src="{{logo}}"></image>
+  <button catchtap="enterHomepage" class="btnEnter">Shopping</button>
+</view>

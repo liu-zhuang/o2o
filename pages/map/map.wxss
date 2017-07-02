@@ -1,0 +1,44 @@
+/* map.wxss */
+
+.container {
+  padding: 20rpx;
+  align-items: flex-start;
+}
+
+.input-address {
+  width: 100%;
+}
+
+map {
+  height: 550rpx;
+}
+
+.addressList {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.addresContainer {
+  display: flex;
+  flex-direction: column;
+  border: 1rpx solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5rpx;
+  margin: 10rpx;
+}
+
+.addressInfo {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+  padding: 5rpx;
+  margin: 0 10rpx;
+  font-size:32rpx;
+}
+.addressDetail {
+  font-size: 24rpx;
+  padding:5rpx;
+  margin:0 10rpx;
+  color:#ccc;
+}

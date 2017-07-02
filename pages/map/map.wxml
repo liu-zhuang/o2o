@@ -1,0 +1,13 @@
+<view class="container">
+  <input class="input-address" type="text" placeholder="请输入地址" bindblur="searchAddress"></input>
+  <view>
+    <map longitude="{{currentAddress.location.lng}}" latitude="{{currentAddress.location.lat}}" scale="16" markers="{{mapMakers}}"></map>
+  </view>
+  <view class="addressList">
+    <view wx:for="{{addressList}}" data-addressInfo="{{item}}" class="addresContainer" catchtap="selectAddress">
+      <text class="addressInfo">{{ item.name }}
+      </text>
+      <text class="addressDetail">{{item.address}}</text>
+    </view>
+  </view>
+</view>

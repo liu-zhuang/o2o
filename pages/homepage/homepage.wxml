@@ -1,0 +1,15 @@
+<view>
+  <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" width="355" height="150" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class="pickAddress" catchtap="pickAddress">
+<text>{{currentAddress.name}}</text><text style="font-size:24rpx;">▷</text>
+</view>
+<view>
+  <image class="adPic" src="{{adPic}}"></image>
+</view>
