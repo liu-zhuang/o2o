@@ -45,7 +45,7 @@ Page({
                   location: res.data.result.location
                 }
               });
-              this.setData({
+              self.setData({
                 currentAddress: wx.getStorageSync('currentAddress')
               });
             }
