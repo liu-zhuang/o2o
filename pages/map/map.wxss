@@ -2,6 +2,7 @@
 
 .container {
   padding: 20rpx;
+  width:100%;
   align-items: flex-start;
 }
 
@@ -11,6 +12,7 @@
 
 map {
   height: 550rpx;
+  width:100%;
 }
 
 .addressList {

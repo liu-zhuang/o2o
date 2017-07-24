@@ -1,0 +1,5 @@
+.adPic {
+  width: 100%;
+  height: 300rpx;
+  margin-top:5rpx;
+}

@@ -1,0 +1,5 @@
+<template name="onelineonepic">
+  <view>
+    <image class="adPic" src="{{adPic}}" catchtap="clickPic"></image>
+  </view>
+</template>

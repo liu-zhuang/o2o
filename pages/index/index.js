@@ -13,7 +13,7 @@ Page({
   //     url: '../logs/logs'
   //   })
   // },
-  onLoad: function () {
+  onLoad: function (options) {
     let self = this;
     if (!this.data.currentAddress) {
       wx.getLocation({

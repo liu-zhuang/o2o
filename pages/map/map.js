@@ -1,3 +1,4 @@
+let app = getApp();
 // map.js
 Page({
 
@@ -109,12 +110,14 @@ Page({
   },
   selectAddress(event) {
     let selectedAddress = event.currentTarget.dataset.addressinfo;
-    wx.setStorage({
-      key: 'currentAddress',
-      data: selectedAddress
-    });
-    wx.navigateTo({
+    // 将选择的地址存入全局变量
+    app.globalData.currentLocation = {
+      name: selectedAddress.name,
+      location: selectedAddress.location
+    };
+    
+    wx.switchTab({
       url: '/pages/homepage/homepage',
-    })
+    });
   }
 })

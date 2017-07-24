@@ -1,15 +1,79 @@
-<view>
-  <swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{imgUrls}}">
-      <swiper-item>
-        <image src="{{item}}" class="slide-image" width="355" height="150" />
-      </swiper-item>
-    </block>
-  </swiper>
-</view>
+<!--引入一行一图组件-->
+<import src="/pages/template/onelineonepic/onelineonepic.wxml" />
+
+<!--轮播图-->
+<swiper class="swiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" />
+    </swiper-item>
+  </block>
+</swiper>
+<!--地址浮层-->
 <view class="pickAddress" catchtap="pickAddress">
-<text>{{currentAddress.name}}</text><text style="font-size:24rpx;">▷</text>
+  <text>{{currentLocation.name}}</text>
+  <image class="addressArrow" src="/static/image/arrow2.png"></image>
 </view>
+<!--一行一图-->
+<block>
+  <template class="m-t-5" is="onelineonepic" data="{{adPic}}" />
+</block>
+<!--一行一商品-->
+<block wx:for="{{onelineoneshop}}" wx:key="{{id}}">
+  <view class="one-line-one-shop">
+    <view class="desc">
+      <text class="title">{{item.title}}</text>
+      <text class="subTitle">{{item.subTitle}}</text>
+      <text class="originPrice">￥{{item.originPrice}}</text>
+      <text class="priceDesc">{{item.priceDesc}}</text>
+      <text class="price">￥{{item.price}}</text>
+      <image class="addCart" src="/static/image/buy.png" data-id="{{item.id}}" bindtap="addCart"></image>
+    </view>
+    <image data-shopinfo="{{item}}" class="pic" src="http://img10.yiguoimg.com/e/items/2015/151120/9288690571485044_500.jpg" bindtap="showDetail"></image>
+  </view>
+</block>
+<!--单行导航-->
 <view>
-  <image class="adPic" src="{{adPic}}"></image>
+  <scroll-view class="navigateBar" scroll-x>
+    <block wx:for="{{navigateBar}}" wx:key="{{id}}">
+      <view data-category="{{item.id}}" class="navigateItem {{item.id == selectedCategory? 'selected': ''}}" bindtap="selectCategory">{{item.name}}</view>
+    </block>
+  </scroll-view>
 </view>
+<!--导航商品-->
+<view>
+  <scroll-view scroll-y style="height: 1000rpx;" scroll-into-view="{{toView}}" scroll-top="1">
+    <block wx:for="{{onelinetwoshop}}" wx:key="{{id}}">
+      <view id="{{item.categoryId}}" class="onelinetwoshop">
+        <block wx:for="{{item.shops}}" wx:key="{{item.categoryId}}" wx:for-item="shop">
+          <view class="item">
+            <image class="pic" src="{{shop.picUrl}}" data-shopinfo="{{shop}}" bindtap="showDetail"></image>
+            <text class="title">{{shop.title}}</text>
+            <text class="subTitle">{{shop.subTitle}}</text>
+            <text class="priceDesc">{{shop.priceDesc}}</text>
+            <text class="price">￥{{shop.price}}</text>
+            <text class="originPrice">￥{{shop.originPrice}}</text>
+            <image class="addCart" src="/static/image/buy.png" data-id="{{shop.id}}" bindtap="addCart"></image>
+          </view>
+        </block>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+<modal class="modal" hidden="{{isPreviewHidden}}" no-cancel confirmText="关闭" bindconfirm="closeDetail">
+  <view class="modalDetail">
+    <text class="detail-title">{{previewShop.title}}</text>
+    <text class="detail-subTitle">{{previewShop.subtitle}}</text>
+    <view class="detail-pic">
+      <image src="{{previewShop.picUrl}}"></image>
+    </view>
+    <text class="detail-originPrice">￥{{previewShop.originPrice}}</text>
+    <view class="modalRow">
+      <text class="detail-priceDesc">{{previewShop.priceDesc}}</text>
+      <text class="detail-price">￥{{previewShop.price}}</text>
+      <image class="detail-addCart" src="/static/image/buy.png" data-id="{{previewShop.id}}" bindtap="addCart"></image>
+    </view>
+  </view>
+
+</modal>

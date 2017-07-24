@@ -1,16 +1,48 @@
 {
   "pages": [
-      "pages/index/index",
     "pages/homepage/homepage",
+    "pages/index/index",
     "pages/map/map",
- 
-    "pages/logs/logs"
-    
+    "pages/logs/logs",
+    "pages/shopcart/shopcart",
+    "pages/order/order",
+    "pages/manage/manage"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "易果O2O",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "backgroundColor":"#fff",
+    "borderStyle": "black",
+    "selectedColor": "#7AD3AC",
+    "list": [
+      {
+        "pagePath": "pages/homepage/homepage",
+        "text": "下午茶",
+        "iconPath": "/static/image/tabHome.png",
+        "selectedIconPath": "/static/image/tabHomeSelected.png"
+      },
+      {
+        "pagePath": "pages/shopcart/shopcart",
+        "text": "购物车",
+        "iconPath": "/static/image/tabCart.png",
+        "selectedIconPath": "/static/image/tabCartSelected.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "/static/image/tabOrder.png",
+        "selectedIconPath": "/static/image/tabOrderSelected.png"
+      },
+      {
+        "pagePath": "pages/manage/manage",
+        "text": "我的",
+        "iconPath": "/static/image/tabManage.png",
+        "selectedIconPath": "/static/image/tabManageSelected.png"
+      }
+    ]
   }
 }

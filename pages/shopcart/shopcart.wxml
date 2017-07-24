@@ -1,0 +1,14 @@
+<view class="shopcart">
+  <view class="address">
+    <image class="imgLocation" src="/static/image/address_s.png"></image>
+    <p class="shipTo">
+      送至：{{shipToAddress.name}}
+    </p>
+    <image class="imgArrow" src="/static/image/right-arrow.png"></image>
+  </view>
+
+  <view class="split">
+  </view>
+
+  <view></view>
+</view>
